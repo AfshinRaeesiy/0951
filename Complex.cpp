@@ -93,66 +93,66 @@ public:
     }
 
     // Friend functions for I/O and scalar multiplication
-    friend ostream& operator<<(ostream& out, const Complex& c);
-    friend istream& operator>>(istream& in, Complex& c);
-    friend Complex operator*(float scalar, const Complex& c);
+    friend ostream& operator<<(ostream& out, const Complex& f);
+    friend istream& operator>>(istream& in, Complex& f);
+    friend Complex operator*(float scalar, const Complex& f);
 };
 
-ostream& operator<<(ostream& out, const Complex& c) {
-    out << c.real;
-    if (c.imag >= 0)
+ostream& operator<<(ostream& out, const Complex& f) {
+    out << f.real;
+    if (f.imag >= 0)
         out << " + " << c.imag << "i";
     else
         out << " - " << -c.imag << "i";
     return out;
 }
 
-istream& operator>>(istream& in, Complex& c) {
+istream& operator>>(istream& in, Complex& f) {
     cout << "Enter real part: ";
-    in >> c.real;
+    in >> f.real;
     cout << "Enter imaginary part: ";
-    in >> c.imag;
+    in >> f.imag;
     return in;
 }
 
-Complex operator*(float scalar, const Complex& c) {
-    return c * scalar;
+Complex operator*(float scalar, const Complex& f) {
+    return f * scalar;
 }
 
 int main() {
-    Complex c1(3, 4);
-    Complex c2(1, -2);
+    Complex f1(1, 5);
+    Complex f2(3, -4);
 
-    cout << "c1 = " << c1 << endl;
-    cout << "c2 = " << c2 << endl;
+    cout << "f1 = " << f1 << endl;
+    cout << "f2 = " << f2 << endl;
 
-    Complex c3 = c1 + c2;
-    cout << "c1 + c2 = " << c3 << endl;
+    Complex f3 = f1 + f2;
+    cout << "f1 + f2 = " << f3 << endl;
 
-    Complex c4 = c1 - c2;
-    cout << "c1 - c2 = " << c4 << endl;
+    Complex f4 = f1 - f2;
+    cout << "f1 - f2 = " << f4 << endl;
 
-    Complex c5 = c1 * c2;
-    cout << "c1 * c2 = " << c5 << endl;
+    Complex f5 = f1 * f2;
+    cout << "f1 * f2 = " << f5 << endl;
 
-    Complex c6 = c1 / c2;
-    cout << "c1 / c2 = " << c6 << endl;
+    Complex f6 = f1 / f2;
+    cout << "f1 / f2 = " << f6 << endl;
 
-    Complex c7 = 2.5f * c1;
-    cout << "2.5 * c1 = " << c7 << endl;
+    Complex f7 = 2.5f * f1;
+    cout << "2.5 * f1 = " << f7 << endl;
 
-    Complex c8 = c1 / 2;
-    cout << "c1 / 2 = " << c8 << endl;
+    Complex f8 = f1 / 2;
+    cout << "f1 / 2 = " << f8 << endl;
 
-    cout << "Magnitude of c1: " << c1.magnitude() << endl;
-    cout << "Conjugate of c1: " << c1.conjugate() << endl;
+    cout << "Magnitude of f1: " << f1.magnitude() << endl;
+    cout << "Conjugate of f1: " << f1.conjugate() << endl;
 
-    cout << "c1 == c2? " << (c1 == c2 ? "Yes" : "No") << endl;
-    cout << "c1 != c2? " << (c1 != c2 ? "Yes" : "No") << endl;
+    cout << "f1 == f2? " << (f1 == f2 ? "Yes" : "No") << endl;
+    cout << "f1 != f2? " << (f1 != f2 ? "Yes" : "No") << endl;
 
-    Complex c9;
-    cin >> c9;
-    cout << "You entered: " << c9 << endl;
+    Complex f9;
+    cin >> f9;
+    cout << "You entered: " << f9 << endl;
 
     return 0;
 }
